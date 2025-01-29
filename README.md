@@ -1,0 +1,1 @@
+# notionMemoApp_react-native
