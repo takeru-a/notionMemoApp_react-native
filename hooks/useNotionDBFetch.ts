@@ -69,7 +69,7 @@ export const useNotionDBFetch = ({
   useEffect(() => {
     fetchData();
   }, [fetchData]);
-  
+
 
   return { data, loading, error, refetch: fetchData };
 };

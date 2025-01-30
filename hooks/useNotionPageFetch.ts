@@ -24,7 +24,7 @@ export function useNotionPageFetch({
   if (!apiKey) {
     return { data, loading, error: new Error("Notion API Key is not set"), refetch: () => {} };
   }
-  
+
   // Notionクライアントを生成
   const notion = useMemo(() => {
     return new Client({ auth: apiKey });

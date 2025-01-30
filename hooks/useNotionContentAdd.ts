@@ -33,8 +33,8 @@ export const useNotionContentAdd = () => {
 
       if (content.length === 0 || content.trim() === "") {
           return null;
-          }
-      // ローディング開始  
+      }
+      // ローディング開始
       setLoading(true);
       setError(null);
 
