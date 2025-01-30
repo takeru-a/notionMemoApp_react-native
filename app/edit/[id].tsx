@@ -20,6 +20,8 @@ import { Modal, ModalBackdrop, ModalBody, ModalContent, ModalFooter, ModalHeader
 import { Heading } from '@components/ui/heading';
 import { ButtonText, Button, ButtonIcon } from '@components/ui/button';
 import { ArrowLeftIcon, Icon, TrashIcon } from '@components/ui/icon';
+import { User } from "lucide-react-native"
+import { Avatar } from '@components/ui/avatar';
 
 const DetailsScreen = () => {
 
@@ -36,7 +38,7 @@ const DetailsScreen = () => {
   // Notionページのコンテンツを削除
   const { deleteBlock, loading: delete_loading, error: delete_error } = useNotionDelete();
   // Notionページのコンテンツを更新
-  const { updateBlock, loading: update_loading, error: update_error } = useNotionContentUpdate(); 
+  const { updateBlock, loading: update_loading, error: update_error } = useNotionContentUpdate();
 
   // コンテンツ内容
   const [contents, setContents] = useState('');
@@ -75,16 +77,18 @@ const DetailsScreen = () => {
     const content = item.type === "paragraph" ? item.paragraph.rich_text[0]?.plain_text : "";
     return (
       <View>
-        <Box
-        style={styles.box}
-        >
-        <LinearGradient
-          style={styles.container}
-          colors={["#8637CF", "#0F55A1"]}
-          start={[1, 0]}
-          end={[0, 1]}
-          >
-            <Text 
+        <Box style={styles.box}>
+          <LinearGradient
+            style={styles.container}
+            colors={["#8637CF", "#0F55A1"]}
+            start={[1, 0]}
+            end={[0, 1]}
+            >
+            <Avatar size="md" className="bg-indigo-300 border-2 border-indigo-600 mr-2">
+              <Icon as={User} size="xl" className="text-indigo-900"/>
+            </Avatar>
+            <Text
+            className='flex-1'
               style={styles.item}
               onPress={() => {
                 setTargetId(item.id);
@@ -94,7 +98,7 @@ const DetailsScreen = () => {
               >
               {content}
             </Text>
-        </LinearGradient>
+          </LinearGradient>
         </Box>
       </View>
     );
@@ -129,7 +133,7 @@ const DetailsScreen = () => {
           >
           <TextareaInput
             onChangeText={(text) => setContents(text)}
-            placeholder="Enter Text here..." type='text' className=''/>
+            placeholder="Enter Content here..." type='text' className=''/>
           </Textarea>
           <Center>
             <Feather name="play" size={24} color="blue"
@@ -291,10 +295,13 @@ const styles = StyleSheet.create({
     padding: 15,
     marginHorizontal: 16,
     borderRadius: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   item: {
     color: 'white',
-    fontSize: 24,
+    fontSize: 20,
   },
   input: {
     position: 'absolute',

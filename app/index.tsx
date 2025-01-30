@@ -88,21 +88,21 @@ const App = () => {
             <Text style={styles.titleText} >{title}</Text>
           </Link>
           <View style={styles.row}>
-            <Ionicons 
-              name="pencil" 
-              size={24} 
-              color="#fff" 
-              style={styles.icon} 
+            <Ionicons
+              name="pencil"
+              size={24}
+              color="#fff"
+              style={styles.icon}
               onPress={() => {
                 setShowUpdateModal(true)
                 setUpdateId(item.id)
               }}
               />
-            <Ionicons 
-              name="trash" 
-              size={24} 
-              color="#fff" 
-              style={styles.icon} 
+            <Ionicons
+              name="trash"
+              size={24}
+              color="#fff"
+              style={styles.icon}
               onPress={() => {
                 setShowDLModal(true)
                 setDeleteId(item.id)
@@ -139,7 +139,7 @@ const App = () => {
         style={styles.input}>
         <InputField
           onChangeText={(text) => setPageTitle(text)}
-          placeholder="Enter Text here..." type='text' className='mr-4'/>
+          placeholder="Enter Memo Title here..." type='text' className='mr-4'/>
             <InputSlot className="pr-3"
               onPress={() => {
                 if (pageTitle.trim() !== '') {
@@ -220,7 +220,7 @@ const App = () => {
           </ModalHeader>
           <ModalBody className="mb-4">
             <Input>
-              <InputField 
+              <InputField
                 placeholder="Enter Text here..."
                 onChangeText={(text) => setUpdateTitle(text)}
                  />

@@ -26,11 +26,10 @@ export default function Layout() {
           },
         }}
       >
-        <Stack.Screen 
-          name="index" 
-          options={{ 
+        <Stack.Screen
+          name="index"
+          options={{
             title: 'Home',
-            headerShown: true
           }}
         />
         <Stack.Screen
